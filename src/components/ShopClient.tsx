@@ -66,7 +66,7 @@ export default function ShopClient({ Arrayproducts }: Props) {
   }
 
   return (
-    <div className="p-8">
+    <div className="ml-10 mr-10 mt-30">
       <CategoryFilter onFilter={onfilterByCategory}/>
 
       <div className="">

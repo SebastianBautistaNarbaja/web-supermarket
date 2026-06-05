@@ -1,0 +1,48 @@
+.cont{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lista{
+  overflow: hidden;
+  display: flex;
+  gap : 4rem;
+  font-size: 1.3rem;
+  padding:1rem;
+  li{
+    display: flex;
+    min-height: 6rem;
+    min-width: 6rem;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s ease;
+    border-radius: 90px 90px 90px 90px;
+    img{
+      min-height: 50px;
+      max-height: 60px;
+      height: 4vw;
+    }
+  }
+  li:hover{
+    transform: scale(0.9); 
+    background: #fda71365;
+  }
+}
+
+.focusLi{
+  transform: scale(1.1); 
+  background-color: #00ab61c0;
+}
+
+.button{
+  font-size: 2rem;
+  img{
+    min-height: 30px;
+    max-height: 30px;
+    min-width: 30px;
+    max-width: 30px;
+  }
+}
+
+
+

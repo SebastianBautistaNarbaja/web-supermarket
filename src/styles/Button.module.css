@@ -1,0 +1,31 @@
+.button{
+    font-size: 1rem;
+    background-color: #009342;
+    color: white;
+    padding-block: 0.5rem;
+    padding-inline: 1.5rem;
+    border-radius: 5px;
+}
+
+.cont{
+    margin-top: 0.4rem;
+    padding: 0.3rem;
+    display: flex;
+    box-shadow: 0px 0px 5px rgba(117, 112, 112, 0.39);
+    width: 80%;
+    justify-content: space-around;
+    border-radius: 10px;
+}
+
+.inputQuantity{
+    margin-inline: 0.5rem;
+    outline: none;
+    text-align: center;
+    width: 100%;
+}
+
+.controlQuantity{
+    cursor: pointer;
+    text-align: center;
+    width: 3rem;
+}

@@ -1,5 +1,6 @@
 import { Product } from "@/types/Product"
 import CartItemControls from "@/components/CartItemControls"
+import styles from "@/styles/ListProducts.module.css"
 
 interface Props {
   Arrayproducts: Product[]
@@ -10,21 +11,17 @@ interface Props {
 
 export default function ListProducts({ Arrayproducts, onAddProduct, onRemoveProduct,onQuantityChange} : Props) {
     return(
-    <main>
-        <div>
-            <ul className="flex flex-wrap">{
-                Arrayproducts.map((product) =>(
-                <li key={product.product_id} className="border rounded-lg p-4 w-1/1 text-center w-70">   
-                    <h3> nombre : { product.name } ({product.product_id})</h3> 
-                    <h2> precio : { Number(product.price)} </h2>
-                    <h2> categoria : { product.category?.name} </h2>
-                    <CartItemControls product={product} onAddProduct={onAddProduct} onRemoveProduct={onRemoveProduct} onQuantityChange={onQuantityChange}/>
-                </li>
-                ))
-                }
-            </ul>
-        </div>
-    </main>
+        <ul className={styles.list}>{
+            Arrayproducts.map((product) =>(
+            <li key={product.product_id} className={styles.item}>   
+                <h2> { product.name }</h2> 
+                <img src="/images/genericProductIcon.png" alt="" className={styles.search__img}/>
+                <h3>{ Number(product.price).toFixed(2) }  €</h3>
+                <CartItemControls product={product} onAddProduct={onAddProduct} onRemoveProduct={onRemoveProduct} onQuantityChange={onQuantityChange}/>
+            </li>
+            ))
+            }
+        </ul>
     )
 }
 

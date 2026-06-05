@@ -1,6 +1,7 @@
 "use client"
 import { Product } from "@/types/Product";
 import { useState } from "react";
+import styles from "@/styles/Button.module.css"
 
 interface Props{
     product : Product
@@ -13,20 +14,28 @@ interface Props{
 export default function CartItemControls({product,onAddProduct,onRemoveProduct,onQuantityChange}: Props){ 
     const [quantity, setQuantity] = useState(0);
     const [tempQuantity, setTempQuantity] = useState<number | "">(0);
+    if(!product.active){
+        return(
+            <button className={styles.button}>
+                Agotado
+            </button>
+            )
+    }
 
     if(quantity > 0 ){
         return(
-            <div className="flex">
-                <button className="border py-1 px-3 rounded-lg mx-3" 
+            <div className={styles.cont}>
+                <button className={styles.controlQuantity} 
                 onClick={() => {
-                    const value = quantity + 1;
+                    const value = quantity - 1;
                     setQuantity(value);
-                    setTempQuantity(value);
-                    onAddProduct(product);
+                    setTempQuantity(value); 
+                    onRemoveProduct(product);
                 }}>
-                +
+                –
                 </button>
-                <input className="w-15" type="number" value={tempQuantity} 
+
+                <input className={styles.inputQuantity} type="number" value={tempQuantity} 
                 
                 onKeyDown={(event) => {   
                     if (["-", "+", "e", "E", ".", ",", "Add", "Subtract"].includes(event.key)){
@@ -68,21 +77,20 @@ export default function CartItemControls({product,onAddProduct,onRemoveProduct,o
                     event.currentTarget.blur();
                 }}
                 />
-                <button className="border py-1 px-3 rounded-lg mx-3" 
+                <button className={styles.controlQuantity} 
                 onClick={() => {
-                    const value = quantity - 1;
+                    const value = quantity + 1;
                     setQuantity(value);
-                    setTempQuantity(value); 
-                    onRemoveProduct(product);
+                    setTempQuantity(value);
+                    onAddProduct(product);
                 }}>
-                -
+                +
                 </button>
             </div>
         )
     } else {
         return(
-            <div>
-                <button className="border py-1 px-3 rounded-lg mx-3" 
+                <button className={styles.button} 
                 onClick={() => {
                     setQuantity(1);
                     setTempQuantity(1)
@@ -90,7 +98,6 @@ export default function CartItemControls({product,onAddProduct,onRemoveProduct,o
                 }}>
                 Añadir
                 </button>
-            </div>
         )
     }
 }
