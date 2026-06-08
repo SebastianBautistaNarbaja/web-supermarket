@@ -33,7 +33,6 @@ export default function CategoryFilter({onFilter} : Props){
     }
 
     return(
-        //<header className={`${styles.header} ${scrolled ? styles.scroll : ""}`}></header>
         <div className={styles.cont}>
             <button onClick={arrowLeft} className={styles.button}>
                 <img src="/images/arrow.png" className="rotate-180"/>

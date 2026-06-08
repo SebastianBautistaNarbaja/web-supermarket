@@ -41,6 +41,7 @@
     max-width: 35rem;
 }
 .search__img{
+    cursor: pointer;
     background-color: #009342;
     height: 36px;
     padding: 7px 7px 7px 10px;

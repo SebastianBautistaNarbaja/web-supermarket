@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { Roboto } from "next/font/google"
 
 const roboto = Roboto({
@@ -17,8 +17,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en" className={`${roboto.className}  h-full antialiased`}>
       <body className="min-h-full flex flex-col">
-        <Header/>
         {children}
+        <Footer/>
       </body>
     </html>
   );
